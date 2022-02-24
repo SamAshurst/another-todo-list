@@ -1,6 +1,21 @@
 .App {
-  text-align: center;
+	text-align: center;
 }
 h2 {
-  display: inline;
+	display: inline;
+}
+
+.to-do-user-form,
+table,
+th,
+td {
+	margin: 20px;
+	border: 1px;
+	border-style: solid;
+	border-color: black;
+	table-layout: auto;
+	align-content: center;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 25px;
 }

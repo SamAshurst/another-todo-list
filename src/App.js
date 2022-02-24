@@ -1,32 +1,20 @@
 import "./App.css";
+import ToDoTable from "./components/ToDoTable";
+import ToDoForm from "./components/ToDoForm";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Todo List</h1>
-      <h2>App</h2>
-      <h3>Header</h3>
-      <table>
-        <tr>
-          <th>Tasklist</th>
-        </tr>
-        <tr>
-          <td>Task Complete </td>
-          <td>Task </td>
-          <td>Category </td>
-          <td>To do by date </td>
-          <td>Days left</td>
-        </tr>
-        <tr>
-          <td>Checkbox</td>
-          <td>Button user input text</td>
-          <td>Drop down list</td>
-          <td>Input type date</td>
-          <td>Function remaining days</td>
-        </tr>
-      </table>
-    </div>
-  );
+	return (
+		<div className="App">
+			<h1>Todo List</h1>
+			<h2>App</h2>
+			<Header />
+			<ToDoTable />
+			<ToDoForm />
+			<Footer />
+		</div>
+	);
 }
 
 export default App;

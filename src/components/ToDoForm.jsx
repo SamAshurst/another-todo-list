@@ -1,7 +1,8 @@
-const ToDoForm = () => {
+const ToDoForm = (prop) => {
+
 	return (
 		<div>
-			<form className="to-do-user-form">
+			<form className="to-do-user-form" action ="" method ="get">
 				<label htmlFor="Task">Task</label>
 				<input
 					type="text"
@@ -20,10 +21,22 @@ const ToDoForm = () => {
 				</select>
 				<label htmlFor="complete-by">Complete by:</label>
 				<input type="date" id="completeBy" className="completeBy"></input>
-				<button type="submit">Submit your task!</button>
+				<button type="submit" onClick={ToDo}>Submit your task!</button>
 			</form>
 		</div>
 	);
 };
+
+const ToDo = (event) =>{
+	console.log("Clicked")
+	console.log(event.target.value)
+	event.preventDefault()
+}
+
+
+// Event listener for submit
+// Add to the ToDoTable
+// -Adds a checkbox
+// -Add the days remaining 
 
 export default ToDoForm;

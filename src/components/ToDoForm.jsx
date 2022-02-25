@@ -1,17 +1,18 @@
 import { useState } from "react";
 
-const ToDoForm = () => {
+const ToDoForm = (prop) => {
+	const {addTask} = prop
 
 	const [task, setTask] = useState("")
-	const [category, setCategory] = useState("")
+	const [category, setCategory] = useState("Uncategorised")
 	const [date, setDate] = useState("")
 
 	const handleSubmit = (event) =>{
 		event.preventDefault()
-		console.log(event)
-		
-		
-	}
+		const newTask = { task, category, date}
+		addTask(newTask)
+		setCategory(category)
+}
 
 	return (
 		<div>
@@ -27,12 +28,13 @@ const ToDoForm = () => {
 				></input>
 				<label htmlFor="category-selection">select your category</label>
 				<select id="available-categories" className="available-categories" value={category} onChange={(e)=> setCategory(e.target.value)}>
-					<option value="work">Work</option>
-					<option value="school">School</option>
-					<option value="appointments">Appointments</option>
-					<option value="chores">Chores</option>
-					<option value="shopping">Shopping</option>
-					<option value="uncategorised">Uncategorised</option>
+				<option value="Uncategorised">Uncategorised</option>
+					<option value="Work">Work</option>
+					<option value="School">School</option>
+					<option value="Appointments">Appointments</option>
+					<option value="Chores">Chores</option>
+					<option value="Shopping">Shopping</option>
+					
 				</select>
 				<label htmlFor="complete-by">Complete by:</label>
 				<input type="date" id="completeBy" className="completeBy" value={date} onChange={(e)=> setDate(e.target.value)}></input>
@@ -42,16 +44,5 @@ const ToDoForm = () => {
 	);
 };
 
-const ToDo = (event) =>{
-	console.log("Clicked")
-	console.log(event.target.value)
-	event.preventDefault()
-}
-
-
-// Event listener for submit
-// Add to the ToDoTable
-// -Adds a checkbox
-// -Add the days remaining 
 
 export default ToDoForm;

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ToDoForm from "./ToDoForm";
+import calcDaysLeft from "../utils/calcDaysLeft";
 
 const TaskList = () => {
 	const [tasks, setTasks] = useState([
@@ -10,37 +11,39 @@ const TaskList = () => {
 			date: "2022-03-01",
 		},
 	]);
+	const [isChecked, setCompleted] = useState(false)
 
-	const checkComplete = (task, checkboxValue) => {
-		return task.checkComplete = setComplete(checkboxValue)
-		}
-	};
+	const handleOnChange=()=>{
+		setCompleted(!isChecked)
+	}
+
+	// const checkComplete = (task, checkboxValue) => {
+	// 	if (checkboxValue){
+	// 		return task.checkComplete = true
+	// 	}
+	// 	else {
+	// 		return task.checkComplete = false
+	// 	}
+	// 	// return task.checkComplete = setCompleted(!checkboxValue)
+	// 	}
+	
 
 	const addTask = (taskToAdd) =>
 		setTasks((currentTasks) => {
 			return [taskToAdd, ...currentTasks];
 		});
 
-	const calcDaysLeft = (taskDate) => {
-		const date = new Date(taskDate);
-		const milliseconds = date.getTime();
-		const oneDay = 1000 * 60 * 60 * 24;
-		const diffInTime = milliseconds - Date.now();
-		const diffInDays = Math.round(diffInTime / oneDay);
-		return diffInDays;
-	};
 
 	const taskToBeAdded = tasks.map((task) => {
 		const taskObject = { ...task };
-		console.log(task);
 
 		return (
 			<tr>
 				<td key="checkbox">
 					<input
 						type="checkbox"
-						checked={taskObject.taskComplete}
-						onClick={(e) => checkComplete(task, e.target.checked)}
+						checked={isChecked}
+						onChange={handleOnChange}
 					/>
 				</td>
 				<td key={taskObject.task}>{taskObject.task}</td>

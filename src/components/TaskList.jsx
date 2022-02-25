@@ -3,30 +3,19 @@ import ToDoForm from "./ToDoForm";
 import calcDaysLeft from "../utils/calcDaysLeft";
 
 const TaskList = () => {
-	const [tasks, setTasks] = useState([
-		{
-			taskComplete: false,
-			task: "Here's what a task will look like in your task-list!",
-			category: "Shopping",
-			date: "2022-03-01",
-		},
-	]);
+
+
+	const [tasks, setTasks] = useState([{
+		taskComplete: false,
+		task: "Here's what a task will look like in your task-list!",
+		category: "Shopping",
+		date: "2022-03-01",
+	}]);
 	const [isChecked, setCompleted] = useState(false)
 
 	const handleOnChange=()=>{
 		setCompleted(!isChecked)
 	}
-
-	// const checkComplete = (task, checkboxValue) => {
-	// 	if (checkboxValue){
-	// 		return task.checkComplete = true
-	// 	}
-	// 	else {
-	// 		return task.checkComplete = false
-	// 	}
-	// 	// return task.checkComplete = setCompleted(!checkboxValue)
-	// 	}
-	
 
 	const addTask = (taskToAdd) =>
 		setTasks((currentTasks) => {
@@ -34,12 +23,12 @@ const TaskList = () => {
 		});
 
 
-	const taskToBeAdded = tasks.map((task) => {
+	const taskToBeAdded = tasks.map((task, index) => {
 		const taskObject = { ...task };
 
 		return (
-			<tr>
-				<td key="checkbox">
+			<tr key= {index}>
+				<td key={`${index} checkbox`}>
 					<input
 						type="checkbox"
 						checked={isChecked}
@@ -49,7 +38,7 @@ const TaskList = () => {
 				<td key={taskObject.task}>{taskObject.task}</td>
 				<td key={taskObject.category}>{taskObject.category}</td>
 				<td key={taskObject.date}>{taskObject.date}</td>
-				<td key="Days remaining">{calcDaysLeft(taskObject.date)}</td>
+				<td key={`${index} days remaining`}>{calcDaysLeft(taskObject.date)}</td>
 			</tr>
 		);
 	});
@@ -85,3 +74,15 @@ const TaskList = () => {
 };
 
 export default TaskList;
+
+
+	// const checkComplete = (task, checkboxValue) => {
+	// 	if (checkboxValue){
+	// 		return task.checkComplete = true
+	// 	}
+	// 	else {
+	// 		return task.checkComplete = false
+	// 	}
+	// 	// return task.checkComplete = setCompleted(!checkboxValue)
+	// 	}
+	

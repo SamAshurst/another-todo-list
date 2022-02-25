@@ -1,17 +1,32 @@
-const ToDoForm = (prop) => {
+import { useState } from "react";
+
+const ToDoForm = () => {
+
+	const [task, setTask] = useState("")
+	const [category, setCategory] = useState("")
+	const [date, setDate] = useState("")
+
+	const handleSubmit = (event) =>{
+		event.preventDefault()
+		console.log(event)
+		
+		
+	}
 
 	return (
 		<div>
-			<form className="to-do-user-form" action ="" method ="get">
+			<form className="to-do-user-form" onSubmit={handleSubmit}>
 				<label htmlFor="Task">Task</label>
 				<input
 					type="text"
 					id="input-task"
 					placeholder="Enter your task here"
 					className="input-task"
+					value={task}
+					onChange={(e)=> setTask(e.target.value)}
 				></input>
 				<label htmlFor="category-selection">select your category</label>
-				<select id="available-categories" className="available-categories">
+				<select id="available-categories" className="available-categories" value={category} onChange={(e)=> setCategory(e.target.value)}>
 					<option value="work">Work</option>
 					<option value="school">School</option>
 					<option value="appointments">Appointments</option>
@@ -20,8 +35,8 @@ const ToDoForm = (prop) => {
 					<option value="uncategorised">Uncategorised</option>
 				</select>
 				<label htmlFor="complete-by">Complete by:</label>
-				<input type="date" id="completeBy" className="completeBy"></input>
-				<button type="submit" onClick={ToDo}>Submit your task!</button>
+				<input type="date" id="completeBy" className="completeBy" value={date} onChange={(e)=> setDate(e.target.value)}></input>
+				<button type="submit">Submit your task!</button>
 			</form>
 		</div>
 	);

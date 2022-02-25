@@ -17,7 +17,9 @@ const ToDoForm = (prop) => {
 	return (
 		<div>
 			<form className="to-do-user-form" onSubmit={handleSubmit}>
-				<label htmlFor="Task">Task</label>
+				<label className="task" htmlFor="Task">
+					Task
+				</label>
 				<input
 					type="text"
 					id="input-task"
@@ -26,7 +28,9 @@ const ToDoForm = (prop) => {
 					value={task}
 					onChange={(e) => setTask(e.target.value)}
 				></input>
-				<label htmlFor="category-selection">select your category</label>
+				<label className="category-selection" htmlFor="category-selection">
+					select your category
+				</label>
 				<select
 					id="available-categories"
 					className="available-categories"
@@ -40,7 +44,9 @@ const ToDoForm = (prop) => {
 					<option value="Chores">Chores</option>
 					<option value="Shopping">Shopping</option>
 				</select>
-				<label htmlFor="complete-by">Complete by:</label>
+				<label className="complete-by" htmlFor="complete-by">
+					Complete by:
+				</label>
 				<input
 					type="date"
 					id="completeBy"
@@ -49,7 +55,9 @@ const ToDoForm = (prop) => {
 					onChange={(e) => setDate(e.target.value)}
 					required
 				></input>
-				<button type="submit">Submit your task!</button>
+				<button className="submit-button" type="submit">
+					Submit your task!
+				</button>
 			</form>
 		</div>
 	);

@@ -1,6 +1,13 @@
+* {
+	font-family: "Montserrat", sans-serif;
+	background-color: #f8f5f1;
+}
+
 .App {
 	text-align: center;
+	background-color: #f8f5f1;
 }
+
 h2 {
 	display: inline;
 }
@@ -9,7 +16,7 @@ h2 {
 table,
 th,
 td {
-	margin: 20px;
+	margin: 1px;
 	border: 1px;
 	border-style: solid;
 	border-color: black;
@@ -19,3 +26,69 @@ td {
 	margin-right: auto;
 	padding: 25px;
 }
+
+.checkbox-class-header,
+.task-class-header,
+.category-class-header,
+.task-tbc-class-header,
+.task-days-remaining-class-header {
+	text-align: center;
+	text-transform: capitalize;
+	font-style: bold;
+	font-weight: bold;
+	background-color: #45526c;
+	max-width: fit-content;
+}
+
+.to-do-table {
+	border: none;
+	background-color: #f8f5f1;
+	max-width: fit-content;
+}
+
+.checkbox-class,
+.task-class,
+.category-class,
+.task-tbc-class,
+.task-days-remaining-class {
+	background: #5aa897;
+}
+
+.to-do-user-form {
+	align-items: center;
+	align-content: center;
+	text-align: center;
+	background-color: #f8a488;
+	max-width: fit-content;
+}
+
+.task,
+.category-selection,
+.complete-by {
+	padding: 15px;
+	margin: 15px;
+	background-color: #f8a488;
+	font-weight: bold;
+}
+
+.submit-button {
+	padding: 25px;
+	margin-top: 20px;
+	border-radius: 10px;
+	size: 150%;
+	width: 20%;
+	height: 20%;
+	font-size: large;
+}
+
+.instructions {
+	text-align: center;
+	border: #45526c;
+	border-style: dashed;
+	margin-top: 50px;
+	margin-left: 300px;
+	margin-right: 300px;
+	padding: 25px;
+}
+
+/* // instructions - h1-h2----classes per column */ ;
